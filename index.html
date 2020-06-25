@@ -3,6 +3,7 @@
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <script src="buidl.js"></script>
+        <script src="qrcode.js"></script>
     </head>
     <body>
         <h1>Bitcoin Paper Wallet Generator</h1>
@@ -11,8 +12,16 @@
         </p>
         <button onclick="return clickButton();">Generate New Address</button>
         <br>
-        <div id="addressDiv"></div>
-        <div id="privateKeyDiv"></div>
+        <table width="100%">
+            <tr>
+                <td><div id="addressQR"></div></td>
+                <td><div id="privateKeyQR"></div></td>
+            </tr>
+            <tr>
+                <td><div id="addressDiv"></div></td>
+                <td><div id="privateKeyDiv"></div></td>
+            </tr>
+        </table>
         <script>
             console.log("Bitcoin is here!");
             function clickButton(){
@@ -21,7 +30,11 @@
                 var address = newPair.p2pkh;
                 var privateKey = newPair.pk;
                 document.getElementById("addressDiv").innerHTML = address;
-                document.getElementById("privateKeyDiv").innerHTML = privateKey; 
+                document.getElementById("privateKeyDiv").innerHTML = privateKey;
+                document.getElementById("addressQR").innerHTML = "";
+                document.getElementById("privateKeyQR").innerHTML = "";
+                new QRCode(document.getElementById("addressQR"), address);
+                new QRCode(document.getElementById("privateKeyQR"), address);
             }
         </script>
     </body>
