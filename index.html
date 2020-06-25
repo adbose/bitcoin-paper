@@ -2,16 +2,27 @@
 <html>
     <head>
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <script scr="buidl.js"></script>
+        <script src="buidl.js"></script>
     </head>
     <body>
-        <h1>Bitcoin Paper</h1>
+        <h1>Bitcoin Paper Wallet Generator</h1>
         <p>
             Generate Bitcoin wallets securely on the fly using 100% client-side Javascript.
         </p>
-        <button>Generate New Address</button>
+        <button onclick="return clickButton();">Generate New Address</button>
+        <br>
+        <div id="addressDiv"></div>
+        <div id="privateKeyDiv"></div>
         <script>
-            console.log("Bitcoin is here")
+            console.log("Bitcoin is here!");
+            function clickButton(){
+                console.log("Button is clicked.");
+                var newPair = buidl.getNewAddress();
+                var address = newPair.p2pkh;
+                var privateKey = newPair.pk;
+                document.getElementById("addressDiv").innerHTML = address;
+                document.getElementById("privateKeyDiv").innerHTML = privateKey; 
+            }
         </script>
     </body>
 </html>
