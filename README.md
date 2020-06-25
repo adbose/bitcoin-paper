@@ -9,4 +9,4 @@ This project also makes use of QRCode.js for making QR Codes of the generated ad
 
 Clone the repository, and open the `index.html` file located inside the cloned repo to start generating bitcoin addresses.
 
-This is not intended for production use. **USE AT YOUR OWN RISK**.
+This application is purely for educational purposes and is not intended for production use. **USE AT YOUR OWN RISK**.
